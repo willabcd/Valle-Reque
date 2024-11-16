@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:faces="jakarta.faces"
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:f="jakarta.faces.core"
+      xmlns:h="jakarta.faces.html"
+      xmlns:pt="jakarta.faces.passthrough"
+      xmlns:cc="jakarta.faces.composite"
+      xmlns:c="jakarta.tags.core"
+      xmlns:fn="jakarta.tags.functions" xmlns:p="primefaces">
+<h:head>
+    <title>Mi Proyecto JSF 3</title>
+    <h:outputStylesheet library="webjars" name="primeflex/3.3.1/primeflex.min.css" />
+    <h:outputStylesheet library="css" name="lyout.css" />
+</h:head>
+<h:body>
+    <div class="layout-wrapper">
+        <div class="layout-content">
+            <div class="m-4">
+                <div class="flex justify-content-center flex-wrap">
+                    <h1 class="flex align-content-center justify-content-center font-bold m-2">
+                        prinface persistencia paso 1
+                    </h1>
+                </div>
+                <div class="grid">
+                    <div class="col-12">
+                        <h:form id="form">
+                            <p:growl id="messages" showDetail="true" />
+
+                            <p:toolbar>
+                                <p:toolbarGroup>
+                                    <p:commandButton value="nuevo"
+                                                     icon="pi pi-plus"
+                                                     actionListener="#{clienteMB.nuevo()}"
+                                                     update=":dialogs:panel-conten"
+                                                     oncomplete="PF('dlgCliente').show()"
+                                                     styleClass="ui-button-success" style="margin-right: .5rem">
+                                        <p:resetInput target=":dialogs:panel-conten" />
+                                    </p:commandButton>
+
+                                </p:toolbarGroup>
+                            </p:toolbar>
+
+                        </h:form >
+
+                        <h:form id="dialogs">
+                            <p:dialog header="cliente"
+                                      showEffect="fade"
+                                      modal="true"
+                                      widgetVar="dlgCliente"
+                                      responsive="true">
+                                <p:outputPanel id="panel-conten" class="ui-fluid">
+                                    <p:outputPanel rendered="#{not empty clienteMB.cliente}">
+
+                                        <div class="field">
+                                            <p:outputLabel for="nombre">Nombre</p:outputLabel>
+                                            <p:inputText id="nombre" value="#{clienteMB.cliente.nombre}" required="true" />
+                                        </div>
+                                        <div class="field">
+                                            <p:outputLabel for="apellido">Nombre</p:outputLabel>
+                                            <p:inputText id="apellido" value="#{clienteMB.cliente.apellido}" required="true" />
+                                        </div>
+                                        <div class="field">
+                                            <p:outputLabel for="correo">Nombre</p:outputLabel>
+                                            <p:inputText id="correo" value="#{clienteMB.cliente.correo}" required="true" />
+                                        </div>
+                                        <div class="field">
+                                            <p:outputLabel for="fecha">Nombre</p:outputLabel>
+                                            <p:inputText id="fecha" value="#{clienteMB.cliente.fechaRegistro}" required="true" />
+                                        </div>
+
+                                    </p:outputPanel>
+                                </p:outputPanel>
+
+                                <f:facet name="footer">
+                                    <p:commandButton value="guardar"
+                                                     icon="pi pi-check"
+                                                     actionListener="#{clienteMB.guardarcñi()}"
+                                                     update="panel-conten"
+                                                     process="panel-conten @this" />
+                                    <p:commandButton value="cancelar"
+                                                     icon="pi pi-times"
+                                                     onclick="PF('dlgCliente').hide()"
+                                                     class="ui-button-secondary"
+                                                     type="button" />
+                                </f:facet>
+                            </p:dialog>
+                        </h:form >
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</h:body>
+</html>
