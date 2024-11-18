@@ -1,0 +1,38 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:faces="jakarta.faces"
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:f="jakarta.faces.core"
+      xmlns:h="jakarta.faces.html"
+      xmlns:pt="jakarta.faces.passthrough"
+      xmlns:cc="jakarta.faces.composite"
+      xmlns:c="jakarta.tags.core"
+      xmlns:fn="jakarta.tags.functions" xmlns:p="primefaces">
+<h:head>
+   <title>Iniciar sesión - Mi Proyecto JSF 3</title>
+   <!-- PrimeFaces CSS -->
+   <h:outputStylesheet library="webjars" name="primeflex/3.3.1/primeflex.min.css" />
+</h:head>
+<h:form id="loginForm">
+   <!-- Mensajes de validación -->
+   <p:growl id="messages" showDetail="true" />
+
+   <!-- Formulario de inicio de sesión -->
+   <p:panel header="Iniciar sesión" styleClass="ui-panel-success" >
+      <div class="ui-fluid">
+         <!-- Campo para nombre de usuario -->
+         <div class="field">
+            <p:outputLabel for="usuario" value="Nombre de usuario" />
+            <p:inputText id="usuario" value="#{Login.usuario.nombre_usuario}" required="true" />
+         </div>
+         <!-- Campo para contraseña -->
+         <div class="field">
+            <p:outputLabel for="contrasena" value="Contraseña" />
+            <p:password id="contrasena" value="#{Login.usuario.pwd}" required="true" />
+         </div>
+         <!-- Botón de inicio de sesión -->
+         <p:commandButton value="Iniciar sesión" action="#{Login.validar()}"
+                          update="messages" styleClass="ui-button-primary ui-corner-all" />
+      </div>
+   </p:panel>
+</h:form>
+</html>

@@ -17,18 +17,16 @@ import java.io.Serializable;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "cliente")
+@Table(name = "proyecto")
 public class Cliente implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Integer ID;
-    @Column(name = "nombre")
-    private String Nombre;
-    @Column(name = "apellido")
-    private String Apellido;
-    @Column(name = "correo")
-    private String Correo;
-    @Column(name = "fecha_registro")
-    private String fechaRegistro;
+    @Column(name = "id_proyecto")
+    private Integer id_proyecto;
+    @Column(name = "nombre_proyecto")
+    private String nombre_proyecto;
+    @Column(name = "direccion")
+    private String direccion;
+    @Column(name = "foto_ref")
+    private String foto_ref;
 }

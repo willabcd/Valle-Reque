@@ -20,7 +20,6 @@ public class ClienteController implements Serializable {
 
     @EJB
     private iClienteServis icliente;
-
     private Cliente cliente;
 
     public void nuevo(){
@@ -28,7 +27,7 @@ public class ClienteController implements Serializable {
     }
 
     public void  guardarcñi(){
-        if (cliente.getID()==null){
+        if (cliente.getId_proyecto()==null){
             icliente.guardar(cliente);
             FacesContext.getCurrentInstance().addMessage(null,new FacesMessage("cliente guardado "));
         }else{

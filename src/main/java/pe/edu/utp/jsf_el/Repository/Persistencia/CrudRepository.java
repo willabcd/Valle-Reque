@@ -6,7 +6,7 @@ import jakarta.persistence.criteria.CriteriaQuery;
 
 import java.util.List;
 
-public abstract  class CrudRepository<T> implements Repository<T>{
+public abstract class CrudRepository<T> implements Repository<T>{
     private final Class<T>entidad;
 
     public CrudRepository(Class<T> entidad) {
