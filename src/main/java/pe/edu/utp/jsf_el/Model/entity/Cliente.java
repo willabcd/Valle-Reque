@@ -23,10 +23,14 @@ public class Cliente implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer ID;
-    @Column(name = "nombre")
-    private String Nombre;
-    @Column(name = "apellido")
-    private String Apellido;
+
+    @Embedded
+    @AttributeOverrides({
+            @AttributeOverride(name = "Nombre", column = @Column(name ="nombre")),
+            @AttributeOverride(name = "Apellido", column = @Column(name ="apellido"))
+    })
+    private persona pesonacliente;
+
     @Column(name = "correo")
     private String Correo;
     @Column(name = "fecha_registro")
