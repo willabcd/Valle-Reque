@@ -15,7 +15,7 @@
     import java.io.Serializable;
 
     @Getter @Setter
-    @Named(value = "clienteMB")
+    @Named(value = "proyectoMB")
     @ViewScoped
     public class ProyectoController implements Serializable {
 

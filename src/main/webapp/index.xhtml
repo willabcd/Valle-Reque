@@ -31,7 +31,7 @@
                                 <p:toolbarGroup>
                                     <p:commandButton value="nuevo"
                                                      icon="pi pi-plus"
-                                                     actionListener="#{clienteMB.nuevo()}"
+                                                     actionListener="#{proyectoMB.nuevo()}"
                                                      update=":dialogs:panel-conten"
                                                      oncomplete="PF('dlgCliente').show()"
                                                      styleClass="ui-button-success" style="margin-right: .5rem">
@@ -50,28 +50,23 @@
                                       widgetVar="dlgCliente"
                                       responsive="true">
                                 <p:outputPanel id="panel-conten" class="ui-fluid">
-                                    <p:outputPanel rendered="#{not empty clienteMB.proyecto}">
+                                    <p:outputPanel rendered="#{not empty proyectoMB.proyecto}">
 
                                         <div class="field">
                                             <p:outputLabel for="nombre">Nombre</p:outputLabel>
-<<<<<<< HEAD
-                                            <p:inputText id="nombre" value="#{clienteMB.proyecto.pesonacliente.nombre}" required="true" />
+                                            <p:inputText id="nombre" value="#{proyectoMB.proyecto.nombre}" required="true" />
                                         </div>
+
                                         <div class="field">
-                                            <p:outputLabel for="apellido">Nombre</p:outputLabel>
-                                            <p:inputText id="apellido" value="#{clienteMB.proyecto.pesonacliente.apellido}" required="true" />
-=======
-                                            <p:inputText id="nombre" value="#{clienteMB.proyecto.nombre_proyecto}" required="true" />
+                                            <p:outputLabel for="direccion">Nombre</p:outputLabel>
+                                            <p:inputText id="direccion" value="#{proyectoMB.proyecto.direccion}" required="true" />
                                         </div>
+
                                         <div class="field">
                                             <p:outputLabel for="apellido">Direccion</p:outputLabel>
-                                            <p:inputText id="apellido" value="#{clienteMB.proyecto.direccion}" required="true" />
->>>>>>> 380f75838055b99f82a4a4d226c248d05bbab4a8
+                                            <p:inputText id="apellido" value="#{proyectoMB.proyecto.foto_ref}" required="true" />
                                         </div>
-                                        <div class="field">
-                                            <p:outputLabel for="correo">Url</p:outputLabel>
-                                            <p:inputText id="correo" value="#{clienteMB.proyecto.foto_ref}" required="true" />
-                                        </div>
+
                                     </p:outputPanel>
                                 </p:outputPanel>
 
