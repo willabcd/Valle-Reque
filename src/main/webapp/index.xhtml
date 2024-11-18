@@ -50,25 +50,28 @@
                                       widgetVar="dlgCliente"
                                       responsive="true">
                                 <p:outputPanel id="panel-conten" class="ui-fluid">
-                                    <p:outputPanel rendered="#{not empty clienteMB.cliente}">
+                                    <p:outputPanel rendered="#{not empty clienteMB.proyecto}">
 
                                         <div class="field">
                                             <p:outputLabel for="nombre">Nombre</p:outputLabel>
-                                            <p:inputText id="nombre" value="#{clienteMB.cliente.pesonacliente.nombre}" required="true" />
+<<<<<<< HEAD
+                                            <p:inputText id="nombre" value="#{clienteMB.proyecto.pesonacliente.nombre}" required="true" />
                                         </div>
                                         <div class="field">
                                             <p:outputLabel for="apellido">Nombre</p:outputLabel>
-                                            <p:inputText id="apellido" value="#{clienteMB.cliente.pesonacliente.apellido}" required="true" />
+                                            <p:inputText id="apellido" value="#{clienteMB.proyecto.pesonacliente.apellido}" required="true" />
+=======
+                                            <p:inputText id="nombre" value="#{clienteMB.proyecto.nombre_proyecto}" required="true" />
                                         </div>
                                         <div class="field">
-                                            <p:outputLabel for="correo">Nombre</p:outputLabel>
-                                            <p:inputText id="correo" value="#{clienteMB.cliente.correo}" required="true" />
+                                            <p:outputLabel for="apellido">Direccion</p:outputLabel>
+                                            <p:inputText id="apellido" value="#{clienteMB.proyecto.direccion}" required="true" />
+>>>>>>> 380f75838055b99f82a4a4d226c248d05bbab4a8
                                         </div>
                                         <div class="field">
-                                            <p:outputLabel for="fecha">Nombre</p:outputLabel>
-                                            <p:inputText id="fecha" value="#{clienteMB.cliente.fechaRegistro}" required="true" />
+                                            <p:outputLabel for="correo">Url</p:outputLabel>
+                                            <p:inputText id="correo" value="#{clienteMB.proyecto.foto_ref}" required="true" />
                                         </div>
-
                                     </p:outputPanel>
                                 </p:outputPanel>
 
