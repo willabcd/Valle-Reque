@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:faces="jakarta.faces"
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:f="jakarta.faces.core"
+      xmlns:h="jakarta.faces.html"
+      xmlns:pt="jakarta.faces.passthrough"
+      xmlns:cc="jakarta.faces.composite"
+      xmlns:c="jakarta.tags.core"
+      xmlns:fn="jakarta.tags.functions" xmlns:p="primefaces">
+<h:head>
+    <title>Mi Proyecto JSF 3</title>
+    <h:outputStylesheet library="webjars" name="primeflex/3.3.1/primeflex.min.css" />
+    <h:outputStylesheet library="css" name="lyout.css" />
+</h:head>
+<h:body>
+    <div class="layout-content">
+        <div class="m-4">
+            <div class="flex justify-content-center flex-wrap">
+                <h1 class="flex align-content-center justify-content-center font-bold m-2">
+                    prinface persistencia paso 1
+                </h1>
+            </div>
+            <div class="grid">
+                <div class="col-12">
+                    <h:form id="form">
+                        <p:growl id="messages" showDetail="true" />
+
+                        <div class="field">
+                            <p:outputLabel for="nombre">Nombre</p:outputLabel>
+                            <p:inputText id="nombre" value="#{Login.usuario.nombre_usuario}" required="true" />
+                        </div>
+
+                        <div class="field">
+                            <p:outputLabel for="contraseña">Contraseña</p:outputLabel>
+                            <p:password id="contraseña" value="#{Login.usuario.pwd}" required="true" />
+                        </div>
+
+                        <div class="field">
+                            <p:outputLabel for="estado">Estado</p:outputLabel>
+                            <p:inputText id="estado" value="#{Login.usuario.estado}" required="true" />
+                        </div>
+
+                        <div class="field">
+                            <p:outputLabel for="rol">Rol</p:outputLabel>
+                            <p:selectOneMenu id="rol" value="#{Login.usuario.rol}" required="true">
+                                <f:selectItems value="#{Login.roles}" var="rol" itemLabel="#{rol}" itemValue="#{rol}" />
+                            </p:selectOneMenu>
+                        </div>
+
+                        <div class="field">
+                            <p:outputLabel for="empleado">Empleado</p:outputLabel>
+                            <p:inputText id="empleado" value="#{Login.usuario.id_empleado}" required="true" />
+                        </div>
+
+                        <p:commandButton value="Guardar"
+                                         icon="pi pi-check"
+                                         actionListener="#{Login.guardar()}"
+                                         update="@form"   />
+                    </h:form>
+                </div>
+            </div>
+        </div>
+    </div>
+</h:body>
+</html>

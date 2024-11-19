@@ -8,6 +8,7 @@
     import lombok.Getter;
     import lombok.Setter;
 
+    import org.primefaces.PrimeFaces;
     import pe.edu.utp.jsf_el.Model.entity.Proyecto;
 
     import pe.edu.utp.jsf_el.Service.iProyectoServis;
@@ -28,13 +29,15 @@
             proyecto = new Proyecto();
         }
 
-        public void guardarcñi() {
+        public void guardar() {
             if (proyecto.getId() == null) {
                 icliente.guardar(proyecto);
                 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("cliente guardado "));
             } else {
                 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("no sirve tu webada "));
-
             }
+            nuevo();
+            PrimeFaces.current().executeScript("PF('dlgCliente').hide()");
+            PrimeFaces.current().ajax().update("form:messages");
         }
     }

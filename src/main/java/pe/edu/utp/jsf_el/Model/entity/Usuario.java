@@ -30,6 +30,6 @@ public class Usuario implements Serializable {
     @Column(name = "pwd")
     private String pwd;
     @Enumerated(EnumType.STRING)
-    @Column(name = "rol")
+    @Column(name = "rol_usuario")
     private UsuarioRol rol;
 }

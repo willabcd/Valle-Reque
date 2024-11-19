@@ -9,10 +9,14 @@ import jakarta.inject.Named;
 import lombok.Getter;
 import lombok.Setter;
 import org.primefaces.PrimeFaces;
+import pe.edu.utp.jsf_el.Model.entity.Estados.UsuarioRol;
 import pe.edu.utp.jsf_el.Model.entity.Usuario;
 import pe.edu.utp.jsf_el.Service.iUsuarioServis;
 
 import java.io.Serializable;
+import java.util.Arrays;
+import java.util.List;
+
 @Getter
 @Setter
 @Named(value = "Login")
@@ -21,12 +25,23 @@ public class LoginController implements Serializable {
     @EJB
     private iUsuarioServis iusuario;
     private Usuario usuario;
+    private List<UsuarioRol> roles = Arrays.asList(UsuarioRol.values());
 
     @PostConstruct
     public void init() {
         usuario = new Usuario(); // Inicializamos el objeto Usuario
     }
 
+    public void guardar() {
+        try {
+            iusuario.guradar(usuario);
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Usuario guardado "));
+            init();
+        } catch (Exception e) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("no se pudo guardar "));
+        }
+        PrimeFaces.current().ajax().update("form:messages");
+    }
     public void validar() {
         try {
             // Validar las credenciales del usuario con el servicio
