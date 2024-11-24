@@ -37,4 +37,8 @@ public abstract class CrudRepository<T> implements Repository<T>{
     public void eliminar(T objeto){
         getEntityManager().remove(getEntityManager().merge(objeto));
     };
+    @Override
+    public T BusacarUno(Object id){
+        return getEntityManager().find(entidad,id);
+    };
 }

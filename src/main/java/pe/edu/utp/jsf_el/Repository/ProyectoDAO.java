@@ -16,5 +16,4 @@ public class ProyectoDAO extends CrudRepository<Proyecto> {
     }
 
 
-
 }

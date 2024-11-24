@@ -58,6 +58,18 @@
                                          actionListener="#{Login.guardar()}"
                                          update="@form"   />
                     </h:form>
+                    <h:form id="pruebaForm">
+                        <p:outputLabel for="username" value="Nombre de usuario:" />
+                        <p:inputText id="username" value="#{Login.nombreusuario}" />
+
+                        <!-- El botón actualiza el componente que muestra el resultado -->
+                        <p:commandButton value="Validar"  update="resultado" />
+
+                        <!-- Envuelve el outputText en un contenedor con un ID único para actualizarlo -->
+                        <h:panelGroup id="resultado">
+                            <h:outputText value="Resultado: #{Login.usuariodto.id_usuario}" />
+                        </h:panelGroup>
+                    </h:form>
                 </div>
             </div>
         </div>

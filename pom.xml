@@ -94,10 +94,10 @@
 
         <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-core -->
         <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-core</artifactId>
-            <version>6.3.4</version>
-        </dependency>
+        <groupId>org.springframework.security</groupId>
+        <artifactId>spring-security-core</artifactId>
+        <version>6.3.4</version>
+    </dependency>
         <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-config -->
         <dependency>
             <groupId>org.springframework.security</groupId>
@@ -116,7 +116,6 @@
             <artifactId>spring-context-support</artifactId>
             <version>6.2.0</version>
         </dependency>
-
 
 
     </dependencies>

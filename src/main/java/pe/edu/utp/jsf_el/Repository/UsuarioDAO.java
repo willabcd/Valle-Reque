@@ -18,11 +18,15 @@ public class UsuarioDAO extends CrudRepository<Usuario> {
         return em;
     }
 
-    public boolean getValidarUsuario(String nombreUsuario, String password) {
-        Query query = em.createNativeQuery("CALL proc_login_usuario(?, ?)");
+    public Usuario getValidarUsuario(String nombreUsuario) {
+        Query query = em.createNativeQuery("call BuscarXNombre(?)", Usuario.class);
         query.setParameter(1, nombreUsuario);
-        query.setParameter(2, password);
-        Boolean isValid = (Boolean) query.getSingleResult();
-        return isValid != null && isValid;
+        return (Usuario) query.getSingleResult();
+    }
+    public int getIdValido(String nombre){
+        Query query = em.createNativeQuery("SELECT BuscarUserID(?) as id",Usuario.class);
+        query.setParameter(1,nombre);
+        int resultado = query.getSingleResult() == null ? -1 : (int) query.getSingleResult();
+        return resultado;
     }
 }

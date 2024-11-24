@@ -7,6 +7,7 @@ import java.util.List;
 public interface Repository<T> {
     List<T> Listar();
     void GuardarUno(T objeto);
+    T BusacarUno(Object id);
     void GuardarLista(List<T> listaobjetos);
     void eliminar(T objeto);
 }
