@@ -21,11 +21,6 @@ public class UsuarioServis implements iUsuarioServis {
     private final BCryptPasswordEncoder pwdCifrar = new BCryptPasswordEncoder();
 
     @Override
-    public UsuarioDTO validar(String nombre) {
-       return null;
-    }
-
-    @Override
     public void guradar(Usuario usuario) {
         String cifrado = pwdCifrar.encode(usuario.getPwd());
         usuario.setPwd(cifrado);

@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:faces="jakarta.faces"
       xmlns:ui="jakarta.faces.facelets"
@@ -8,15 +9,38 @@
       xmlns:c="jakarta.tags.core"
       xmlns:fn="jakarta.tags.functions" xmlns:p="primefaces">
 <h:head>
-   <title>Iniciar sesión - Mi Proyecto JSF 3</title>
-   <!-- PrimeFaces CSS -->
-   <h:outputStylesheet library="webjars" name="primeflex/3.3.1/primeflex.min.css" />
+   <title>Mi Proyecto JSF 3</title>
+   <h:outputStylesheet library="css" name="login.css" />
 </h:head>
-<h:form id="loginForm">
-   <h:outputLabel for="username">Username:</h:outputLabel>
-   <h:inputText id="username" value="#{validaMG.nombreusuario}" />
-   <h:outputLabel for="password">Password:</h:outputLabel>
-   <h:inputText id="password" value="#{validaMG.contraseña}" />
-   <h:commandButton value="Login" action="#{validaMG.login}" />
-   <h:message for="loginForm" /> #{validaMG.mesaje}</h:form>
+<h:body>
+   <div class="login-container">
+      <!-- Logo -->
+      <img class="img-logo" src="resources/img/login/valleReque.png" alt="Logo Valle Reque" />
+
+      <!-- Título -->
+      <h2>Inicia Sesión</h2>
+
+      <!-- Formulario -->
+      <h:form>
+         <!-- Mensajes de error -->
+         <p:messages id="messages" closable="true" styleClass="custom-messages" />
+
+         <!-- Campo de correo -->
+         <p:outputLabel for="username" value="Correo electrónico" styleClass="form-label" />
+         <p:inputText id="username" value="#{Login.nombreusuario}" placeholder="Ingresa tu correo"
+                      required="true" requiredMessage="El correo es obligatorio"
+                      styleClass="form-input" />
+
+         <!-- Campo de contraseña -->
+         <p:outputLabel for="password" value="Contraseña" styleClass="form-label" />
+         <p:password id="password" value="#{Login.contraseña}" placeholder="Ingresa tu contraseña"
+                     required="true" requiredMessage="La contraseña es obligatoria"
+                     styleClass="form-input" feedback="false" />
+
+         <!-- Botón de envío -->
+         <p:commandButton value="Iniciar Sesión" action="#{Login.validar()}" update="messages"
+                          styleClass="btn-login" />
+      </h:form>
+   </div>
+</h:body>
 </html>
