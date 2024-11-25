@@ -31,7 +31,6 @@ public class LoginController implements Serializable {
     private String nombreusuario;
     private String contraseña;
     private Usuario usuario;
-
     @PostConstruct
     public void init() {
     }
@@ -39,11 +38,17 @@ public class LoginController implements Serializable {
     public String validar() {
         FacesContext faceContext = FacesContext.getCurrentInstance();
         ExternalContext externalContext = faceContext.getExternalContext();
-
         if (auth.isvalidar(nombreusuario, contraseña)) {
+            externalContext.getSessionMap().put("sessionId", auth.getUasuarioactivo().getId_usuario());
             return "entrar";
         } else {
-            faceContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Error", "Contraseña no sirve"));
+            if (Auth.mensaje.isEmpty()) {
+                faceContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                        "Usuario incorrecto", "El nombre de usuario no existe."));
+            } else {
+                faceContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                        "Contraseña incorrecta", "La contraseña ingresada es incorrecta."));
+            }
             externalContext.invalidateSession();
             return "error";
         }

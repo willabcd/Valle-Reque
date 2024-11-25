@@ -3,6 +3,7 @@ package pe.edu.utp.jsf_el.Seguridad.Auth;
 import jakarta.ejb.EJB;
 import jakarta.ejb.Stateless;
 import lombok.Data;
+import lombok.ToString;
 import pe.edu.utp.jsf_el.Model.entity.Usuario;
 import pe.edu.utp.jsf_el.Service.iAuthServis;
 import pe.edu.utp.jsf_el.Service.iUsuarioServis;
@@ -10,7 +11,8 @@ import pe.edu.utp.jsf_el.Service.iUsuarioServis;
 @Stateless
 @Data
 public class Auth {
-    public Usuario uasuarioactivo;
+    private Usuario uasuarioactivo;
+    public static String mensaje;
     public  Auth(){
         this.uasuarioactivo = new Usuario();
     }
@@ -19,8 +21,10 @@ public class Auth {
     public boolean isvalidar(String nombre, String contraseña){
         uasuarioactivo = iauth.validarNombre(nombre);
         if (uasuarioactivo!=null){
+            mensaje = "user";
             return iauth.validarContraseña(contraseña,uasuarioactivo.getPwd()) ;
         }else {
+            mensaje ="";
             return false;
         }
     }
