@@ -12,7 +12,6 @@ import pe.edu.utp.jsf_el.Service.iUsuarioServis;
 @Data
 public class Auth {
     private Usuario uasuarioactivo;
-    public static String mensaje;
     public  Auth(){
         this.uasuarioactivo = new Usuario();
     }
@@ -20,11 +19,10 @@ public class Auth {
     private  iAuthServis iauth;
     public boolean isvalidar(String nombre, String contraseña){
         uasuarioactivo = iauth.validarNombre(nombre);
-        if (uasuarioactivo!=null){
-            mensaje = "user";
+        if (uasuarioactivo!=null ){
             return iauth.validarContraseña(contraseña,uasuarioactivo.getPwd()) ;
         }else {
-            mensaje ="";
+            uasuarioactivo = null;
             return false;
         }
     }

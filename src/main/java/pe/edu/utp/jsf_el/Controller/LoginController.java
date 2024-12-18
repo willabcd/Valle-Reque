@@ -42,15 +42,15 @@ public class LoginController implements Serializable {
             externalContext.getSessionMap().put("sessionId", auth.getUasuarioactivo().getId_usuario());
             return "entrar";
         } else {
-            if (Auth.mensaje.isEmpty()) {
+            if (auth.getUasuarioactivo() == null)
                 faceContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
                         "Usuario incorrecto", "El nombre de usuario no existe."));
-            } else {
+            else {
                 faceContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
                         "Contraseña incorrecta", "La contraseña ingresada es incorrecta."));
             }
             externalContext.invalidateSession();
-            return "error";
+            return null;
         }
     }
     public void verificarSesion() {

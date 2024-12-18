@@ -542,7 +542,7 @@ p {
     padding-top: 70px
 }
 
-.layout-content .content-section {
+>.layout-content .content-section {
     padding: 2rem
 }
 
