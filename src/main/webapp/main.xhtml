@@ -15,7 +15,7 @@
     <h:outputStylesheet library="css" name="main.css" />
 </h:head>
 <h:body>
-
+    <f:event type="preRenderView" listener="#{Login.verificarSesion()}" />
     <!-- Sidebar -->
     <div id="sidebar" class="sidebar">
         <!-- nombre empresa -->
@@ -34,10 +34,10 @@
             <!-- opciones de menu lateral  -->
         <ul class="nav flex-column">
             <li class="nav-item">
-                <h:commandLink  styleClass="nav-link "  action="#{RutasVistas.showInicio()}" >
+                <p:commandLink  styleClass="nav-link "  action="#{RutasVistas.showInicio()}" update="dynamicContent">
                     <i class="pi pi-home"></i>
                     <span class="menu-label">Inicio</span>
-                </h:commandLink>
+                </p:commandLink>
             </li>
             <li class="nav-item">
                 <h:commandLink  styleClass="nav-link toggle-submenu" onclick="return false;">
@@ -46,7 +46,7 @@
                 </h:commandLink>
                 <ul class="nav flex-column submenu desaparecer">
                     <li class="nav-item">
-                        <h:commandLink value="Ventas" styleClass="nav-link" action="#{RutasVistas.showVentas()}" />
+                        <p:commandLink value="Ventas" styleClass="nav-link" action="#{RutasVistas.showVentas()}" update="dynamicContent"/>
                     </li>
                     <li class="nav-item">
                         <h:commandLink value="Usuario" styleClass="nav-link"  />
@@ -93,9 +93,9 @@
 
     <!-- Contenido -->
     <div id="content" class="content">
-        <h:form >
-            <ui:include src="#{RutasVistas.vistaActual}"/>
-        </h:form>
+            <p:outputPanel id="dynamicContent" layout="block">
+                <ui:include src="#{RutasVistas.vistaActual}" />
+            </p:outputPanel>
     </div>
 
     <!-- JavaScript -->

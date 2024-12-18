@@ -76,6 +76,7 @@ body {
 .sidebar .nav-link:hover {
     background-color: var(--hover-aside);
     border-radius: 5px;
+    text-decoration-line: none;
 }
 #icon-salider{
     color: var(--icon-color);
