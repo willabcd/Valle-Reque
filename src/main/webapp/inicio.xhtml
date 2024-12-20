@@ -9,5 +9,10 @@
         xmlns:c="jakarta.tags.core"
         xmlns:fn="jakarta.tags.functions" xmlns:p="primefaces"
 >
-    <h:outputText value="hola lo logre" />
+    <h:form>
+        <p:panel header="Información del Usuario">
+            <h:outputText value="Nombre de Usuario: " />
+            <h:outputText value="#{Login.usuario.nombre_usuario}" />
+        </p:panel>
+    </h:form>
 </ui:composition>

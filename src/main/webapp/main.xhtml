@@ -83,11 +83,13 @@
                 <img src="https://via.placeholder.com/35" alt="Usuario" />
             </div>
             <button class="btn-theme me-3" onclick="toggleTheme()">
-                <i class="pi pi-palette"></i> Cambiar Tema
+                <i class="pi pi-sun" id="sol"></i>
+                <i class="pi pi-moon" id="luna"></i>
             </button>
-            <button class="btn-logout">
-                <i class="pi pi-power-off"></i> Cerrar Sesión
-            </button>
+            <p:commandButton
+                    icon="pi pi-sign-out"
+                    action="#{Login.CerrarSession()}"
+                    styleClass="btn-logout"/>
         </div>
     </div>
 
