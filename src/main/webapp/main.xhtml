@@ -39,35 +39,41 @@
                     <span class="menu-label">Inicio</span>
                 </p:commandLink>
             </li>
-            <li class="nav-item icon-menu">
-                <h:commandLink  styleClass="nav-link toggle-submenu" onclick="return false;">
-                    <i class="pi pi-users"></i>
-                    <span class="menu-label">Usuarios</span>
-                </h:commandLink>
-                <ul class="nav flex-column submenu desaparecer">
-                    <li class="nav-item">
-                        <p:commandLink value="Ventas" styleClass="nav-link" action="#{RutasVistas.showVentas()}" update="dynamicContent"/>
-                    </li>
-                    <li class="nav-item">
-                        <h:commandLink value="Usuario" styleClass="nav-link"  />
-                    </li>
-                </ul>
-            </li>
-            <li class="nav-item icon-menu">
-                <h:commandLink  styleClass="nav-link toggle-submenu" onclick="return false;">
-                    <i class="pi pi-cog"></i>
-                    <span class="menu-label">Configuración</span>
-                </h:commandLink>
-                <ul class="nav flex-column submenu desaparecer">
-                    <li class="nav-item">
-                        <h:commandLink value="Ajustes Generales" styleClass="nav-link"  />
-                    </li>
-                    <li class="nav-item">
-                        <h:commandLink value="Preferencias" styleClass="nav-link"  />
-                    </li>
-                </ul>
 
-            </li>
+            <c:if test="#{Login.usuario.rol.name() eq 'administrador'}">
+                <li class="nav-item icon-menu">
+                    <h:commandLink  styleClass="nav-link toggle-submenu" onclick="return false;">
+                        <i class="pi pi-users"></i>
+                        <span class="menu-label">Usuarios</span>
+                    </h:commandLink>
+                    <ul class="nav flex-column submenu desaparecer">
+                        <li class="nav-item">
+                            <p:commandLink value="Ventas" styleClass="nav-link" action="#{RutasVistas.showVentas()}" update="dynamicContent"/>
+                        </li>
+                        <li class="nav-item">
+                            <p:commandLink value="Registar" styleClass="nav-link" action="#{RutasVistas.showRegistroUser()}" update="dynamicContent" />
+                        </li>
+                    </ul>
+                </li>
+            </c:if>
+
+            <c:if test="#{Login.usuario.rol.name() eq 'administrador'}">
+                <li class="nav-item icon-menu" >
+                    <h:commandLink  styleClass="nav-link toggle-submenu" onclick="return false;" >
+                         <i class="pi pi-cog"></i>
+                        <span class="menu-label">Configuración</span>
+                    </h:commandLink>
+                    <ul class="nav flex-column submenu desaparecer">
+                        <li class="nav-item">
+                            <h:commandLink value="Ajustes Generales" styleClass="nav-link"  />
+                        </li>
+                        <li class="nav-item">
+                            <h:commandLink value="Preferencias" styleClass="nav-link"  />
+                        </li>
+                    </ul>
+
+                </li>
+            </c:if>
         </ul>
         </h:form>
     </div>

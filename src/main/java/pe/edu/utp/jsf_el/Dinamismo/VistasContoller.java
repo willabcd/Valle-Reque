@@ -24,4 +24,7 @@ public void showInicio(){
     public void showVentas(){
         this.VistaActual="/ventas.xhtml";
     }
+    public void showRegistroUser(){
+        this.VistaActual="/registrar_usuarios.xhtml";
+    }
 }
