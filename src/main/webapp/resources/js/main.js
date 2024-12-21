@@ -3,9 +3,15 @@ function toggleMenu() {
     const icon =d.getElementById("icon-salider");
     const  btn = d.getElementById('conten-cerrar-abrir');
     const sudmenus = d.querySelectorAll(".submenu");
+    const itenicon = d.querySelectorAll(".icon-menu");
+    const spanmenu = d.querySelectorAll(".menu-label");
+
     document.getElementById('sidebar').classList.toggle('collapsed');
     document.getElementById('header').classList.toggle('collapsed');
     document.getElementById('content').classList.toggle('collapsed');
+    itenicon.forEach(v => v.classList.toggle('collapsed'));
+    spanmenu.forEach(v => v.classList.toggle('collapsed'));
+
     if (icon.classList.contains("pi-chevron-left") ){
         icon.classList.toggle("pi-chevron-left");
         icon.classList.toggle("pi-bars");

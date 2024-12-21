@@ -33,13 +33,13 @@
         <h:form>
             <!-- opciones de menu lateral  -->
         <ul class="nav flex-column">
-            <li class="nav-item">
-                <p:commandLink  styleClass="nav-link "  action="#{RutasVistas.showInicio()}" update="dynamicContent">
+            <li class="nav-item icon-menu">
+                <p:commandLink  styleClass="nav-link"  action="#{RutasVistas.showInicio()}" update="dynamicContent">
                     <i class="pi pi-home"></i>
                     <span class="menu-label">Inicio</span>
                 </p:commandLink>
             </li>
-            <li class="nav-item">
+            <li class="nav-item icon-menu">
                 <h:commandLink  styleClass="nav-link toggle-submenu" onclick="return false;">
                     <i class="pi pi-users"></i>
                     <span class="menu-label">Usuarios</span>
@@ -53,7 +53,7 @@
                     </li>
                 </ul>
             </li>
-            <li class="nav-item">
+            <li class="nav-item icon-menu">
                 <h:commandLink  styleClass="nav-link toggle-submenu" onclick="return false;">
                     <i class="pi pi-cog"></i>
                     <span class="menu-label">Configuración</span>
@@ -89,7 +89,7 @@
             <p:commandButton
                     icon="pi pi-sign-out"
                     action="#{Login.CerrarSession()}"
-                    styleClass="btn-logout"/>
+                    styleClass="btn-theme"/>
         </div>
     </div>
 
