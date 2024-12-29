@@ -15,13 +15,16 @@ import java.io.Serializable;
 @Builder
 @Entity
 @Table(name = "usuario")
-public class Usuario implements Serializable {
+public class usuario implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_usuario")
     private int id_usuario;
-    @Column(name = "id_empleado")
-    private int id_empleado;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_empleado", referencedColumnName = "id_empleado")
+    private pe.edu.utp.jsf_el.Model.entity.empleado empleado;
+
     @Column(name = "estado")
     private boolean estado;
     @Column(name = "nombre_usuario")

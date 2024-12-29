@@ -2,18 +2,20 @@ package pe.edu.utp.jsf_el.Repository;
 
 import jakarta.ejb.Stateless;
 import jakarta.persistence.EntityManager;
-import pe.edu.utp.jsf_el.Model.entity.proyecto;
+import pe.edu.utp.jsf_el.Model.entity.empleado;
+import pe.edu.utp.jsf_el.Model.entity.usuario;
 import pe.edu.utp.jsf_el.Repository.Persistencia.CrudRepository;
-@Stateless
-public class ProyectoDAO extends CrudRepository<proyecto> {
 
-    public ProyectoDAO() {
-        super(proyecto.class);
-    }
+import java.util.List;
+
+@Stateless
+public class EmpleadoDAO extends CrudRepository<empleado> {
+
+    public EmpleadoDAO() { super(empleado.class);}
+
     @Override
     protected EntityManager getEntityManager() {
         return em;
     }
-
 
 }

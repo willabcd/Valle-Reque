@@ -1,16 +1,43 @@
-<ui:composition
-        xmlns="http://www.w3.org/1999/xhtml"
-        xmlns:faces="jakarta.faces"
-        xmlns:ui="jakarta.faces.facelets"
-        xmlns:f="jakarta.faces.core"
-        xmlns:h="jakarta.faces.html"
-        xmlns:pt="jakarta.faces.passthrough"
-        xmlns:cc="jakarta.faces.composite"
-        xmlns:c="jakarta.tags.core"
-        xmlns:fn="jakarta.tags.functions" xmlns:p="primefaces"
->
-    <h:form>
-        <h:outputText value="registarr usuarios proximamente  " />
-    </h:form>
-</ui:composition>
+    <ui:composition
+            xmlns="http://www.w3.org/1999/xhtml"
+            xmlns:faces="jakarta.faces"
+            xmlns:ui="jakarta.faces.facelets"
+            xmlns:f="jakarta.faces.core"
+            xmlns:h="jakarta.faces.html"
+            xmlns:pt="jakarta.faces.passthrough"
+            xmlns:cc="jakarta.faces.composite"
+            xmlns:c="jakarta.tags.core"
+            xmlns:fn="jakarta.tags.functions" xmlns:p="primefaces"
+    >
+        <h:form id="formEmpleados">
+            <p:dataTable value="#{EmpledoMB.listaempleados}" var="empleado" >
+                <p:column headerText="ID">
+                    <h:outputText value="#{empleado.id}" />
+                </p:column>
+                <p:column headerText="Nombre">
+                    <h:outputText value="#{empleado.nombre}" />
+                </p:column>
+                <p:column headerText="Área">
+                    <h:outputText value="#{empleado.area.name()}" />
+                </p:column>
+                <p:column headerText="Acción">
+                    <p:commandButton value="Cargar Usuarios" actionListener="#{EmpledoMB.cargarUsuarios(empleado)}" update="usuariosTable" />
+                </p:column>
+            </p:dataTable>
+        </h:form>
+
+        <p:outputPanel id="usuariosTable" >
+            <p:dataTable  value="#{EmpledoMB.usuarios}" var="usuario" rendered="#{ EmpledoMB.usuarios.size()> 0 }">
+                <p:column headerText="ID">
+                    <h:outputText value="#{usuario.id_usuario}" />
+                </p:column>
+                <p:column headerText="Nombre de Usuario">
+                    <h:outputText value="#{usuario.nombre_usuario}" />
+                </p:column>
+                <p:column headerText="Rol">
+                    <h:outputText value="#{usuario.rol.name()}" />
+                </p:column>
+            </p:dataTable>
+        </p:outputPanel>
+    </ui:composition>
 

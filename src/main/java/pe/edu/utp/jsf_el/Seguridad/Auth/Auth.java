@@ -3,17 +3,15 @@ package pe.edu.utp.jsf_el.Seguridad.Auth;
 import jakarta.ejb.EJB;
 import jakarta.ejb.Stateless;
 import lombok.Data;
-import lombok.ToString;
-import pe.edu.utp.jsf_el.Model.entity.Usuario;
+import pe.edu.utp.jsf_el.Model.entity.usuario;
 import pe.edu.utp.jsf_el.Service.iAuthServis;
-import pe.edu.utp.jsf_el.Service.iUsuarioServis;
 
 @Stateless
 @Data
 public class Auth {
-    private Usuario uasuarioactivo;
+    private usuario uasuarioactivo;
     public  Auth(){
-        this.uasuarioactivo = new Usuario();
+        this.uasuarioactivo = new usuario();
     }
     @EJB
     private  iAuthServis iauth;

@@ -9,16 +9,10 @@ import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Named;
 import lombok.Getter;
 import lombok.Setter;
-import org.primefaces.PrimeFaces;
-import pe.edu.utp.jsf_el.Model.dto.UsuarioDTO;
-import pe.edu.utp.jsf_el.Model.entity.Estados.UsuarioRol;
-import pe.edu.utp.jsf_el.Model.entity.Usuario;
+import pe.edu.utp.jsf_el.Model.entity.usuario;
 import pe.edu.utp.jsf_el.Seguridad.Auth.Auth;
-import pe.edu.utp.jsf_el.Service.iUsuarioServis;
 
 import java.io.Serializable;
-import java.util.Arrays;
-import java.util.List;
 
 @Getter
 @Setter
@@ -30,14 +24,14 @@ public class LoginController implements Serializable {
 
     private String nombreusuario;
     private String contraseña;
-    private Usuario usuario;
+    private pe.edu.utp.jsf_el.Model.entity.usuario usuario;
     private String prueba;
     @PostConstruct
     public void init() {
         ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
-        this.usuario = (Usuario) externalContext.getSessionMap().get("usuarioSesion");
+        this.usuario = (pe.edu.utp.jsf_el.Model.entity.usuario) externalContext.getSessionMap().get("usuarioSesion");
         if (this.usuario == null) {
-            this.usuario = new Usuario();
+            this.usuario = new usuario();
         }
     }
 
@@ -49,7 +43,7 @@ public class LoginController implements Serializable {
             return "entrar";
         } else {
             if (auth.getUasuarioactivo() == null ) {
-                this.usuario = new Usuario();
+                this.usuario = new usuario();
                 faceContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
                         "Usuario incorrecto", "El nombre de usuario no existe."));
             }else {

@@ -18,7 +18,7 @@ import java.io.Serializable;
 @Builder
 @Entity
 @Table(name = "proyecto")
-public class Proyecto implements Serializable {
+public class proyecto implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_proyecto")

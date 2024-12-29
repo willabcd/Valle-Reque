@@ -9,7 +9,7 @@
     import lombok.Setter;
 
     import org.primefaces.PrimeFaces;
-    import pe.edu.utp.jsf_el.Model.entity.Proyecto;
+    import pe.edu.utp.jsf_el.Model.entity.proyecto;
 
     import pe.edu.utp.jsf_el.Service.iProyectoServis;
 
@@ -23,10 +23,10 @@
 
         @EJB
         private iProyectoServis icliente;
-        private Proyecto proyecto;
+        private pe.edu.utp.jsf_el.Model.entity.proyecto proyecto;
 
         public void nuevo() {
-            proyecto = new Proyecto();
+            proyecto = new proyecto();
         }
 
         public void guardar() {
