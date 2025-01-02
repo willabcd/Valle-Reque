@@ -20,6 +20,9 @@
                 <p:column headerText="Área">
                     <h:outputText value="#{empleado.area.name()}" />
                 </p:column>
+                <p:column headerText="dni">
+                    <h:outputText value="#{empleado.doc_identidad}" />
+                </p:column>
                 <p:column headerText="Acción">
                     <p:commandButton value="Cargar Usuarios" actionListener="#{EmpledoMB.cargarUsuarios(empleado)}" update="usuariosTable" />
                 </p:column>

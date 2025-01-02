@@ -24,6 +24,7 @@ public class EmpleadoServis  implements iEmpleadoServis {
         empleado em = empleado.builder()
                 .nombre(empleadoDTO.getNombre())
                 .apellido(empleadoDTO.getApellido())
+                .doc_identidad(empleadoDTO.getDoc_identidad())
                 .area(empleadoDTO.getArea())
                 .build();
         empleadoDAO.GuardarUno(em);

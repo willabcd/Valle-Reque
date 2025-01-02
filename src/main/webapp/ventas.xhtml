@@ -28,35 +28,14 @@
                 <f:selectItems value="#{EmpledoMB.areas}" var="area" itemLabel="#{area}" itemValue="#{area}" />
             </p:selectOneMenu>
         </div>
-
-        <p:commandButton value="Guardar"
-                         icon="pi pi-check"
-                         actionListener="#{EmpledoMB.guardaruno(EmpledoMB.empleadodto)}"
-                         update="@form"   />
-    </h:form>
-    <h:form id="form2">
-        <p:growl id="messages2" showDetail="true" />
-
         <div class="field">
-            <p:outputLabel for="nombre">Nombre</p:outputLabel>
-            <p:inputText id="nombre" value="#{EmpledoMB.empleadodto.nombre}" required="true" />
-        </div>
-
-        <div class="field">
-            <p:outputLabel for="contraseña">Apellido</p:outputLabel>
-            <p:password id="contraseña" value="#{EmpledoMB.empleadodto.apellido}" required="true" />
-        </div>
-
-        <div class="field">
-            <p:outputLabel for="rol">Area</p:outputLabel>
-            <p:selectOneMenu id="rol" value="#{EmpledoMB.empleadodto.area}" required="true">
-                <f:selectItems value="#{EmpledoMB.areas}" var="area" itemLabel="#{area}" itemValue="#{area}" />
-            </p:selectOneMenu>
+            <p:outputLabel for="dni">DNI</p:outputLabel>
+            <p:password id="dni" value="#{EmpledoMB.empleadodto.doc_identidad}" required="true" />
         </div>
 
         <p:commandButton value="Guardar"
                          icon="pi pi-check"
                          actionListener="#{EmpledoMB.guardaruno(EmpledoMB.empleadodto)}"
                          update="@form"   />
-    </h:form>
+    </h:form >
 </ui:composition>
